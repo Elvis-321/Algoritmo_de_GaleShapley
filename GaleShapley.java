@@ -2,18 +2,22 @@
 public class GaleShapley {
 
 	public static void main(String[] args) {
-		String[][] hombres = {{"Victor","Bertha","Amy","Diane","Erika","Claire"},
-							{"William","Diane","Bertha","Amy","Claire","Erika"},
+		
+		String[][] hombres = {{"William","Diane","Bertha","Amy","Claire","Erika"},
 							{"Xavier","Bertha","Erika","Claire","Diane","Amy"},
+							{"Zeus","Bertha","Diane","Amy","Erika","Claire"},
 							{"Yancey","Amy","Diane","Claire","Bertha","Erika"},
-							{"Zeus","Bertha","Diane","Amy","Erika","Claire"}
+							{"Victor","Bertha","Amy","Diane","Erika","Claire"},
 							};
+		
 		String[][] mujeres = {{"Amy","Zeus","Victor","William","Yancey","Xavier"},
 							{"Bertha","Xavier","William","Yancey","Victor","Zeus"},
 							{"Claire","William","Xavier","Yancey","Zeus","Victor"},
 							{"Diane","Victor","Zeus","Yancey","Xavier","William"},
 							{"Erika","Yancey","William","Zeus","Xavier","Victor"}
 							};
+		//A) Se está colocando primero la preferencia de hombres
+		System.out.println("Preferencia de hombres");
 		Celda[][] H = crearTabla(hombres);
 		Celda[][] M = crearTabla(mujeres);
 		galeShapley(H,M);
@@ -21,14 +25,16 @@ public class GaleShapley {
 		mostrarParejas(H);
 		System.out.println();
 		mostrarParejas(M);
-		
+		//B) Se está colocando primero la preferencia de mujeres
+		System.out.println();
+		System.out.println("Preferencia de mujeres");
 		H = crearTabla(hombres);
 		M = crearTabla(mujeres);
 		galeShapley(M,H);
 		System.out.println();
-		mostrarParejas(H);
-		System.out.println();
 		mostrarParejas(M);
+		System.out.println();
+		mostrarParejas(H);
 	}
 		
 	public static Celda[][] crearTabla(String[][]x) {
